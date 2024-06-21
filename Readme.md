@@ -26,3 +26,8 @@ The roads created by RoadBuilder can be exported to OpenDrive format for use in 
 ### Video tutorials
 
 - https://www.youtube.com/watch?v=zGpPd4RAneQ&list=PLCWhWOgVmdwkOBGElYEPumnCXL12zEtwE
+
+### How to use
+
+- Clone this repo to <u>project/plugins/RoadBuilder</u> folder
+- Extract [Content.zip](https://drive.google.com/file/d/1Es8YJwpEvMFxoh7SPojt0weMluLXaYZE/view?usp=sharing) to <u>project/plugins/RoadBuilder/Content</u> folder
