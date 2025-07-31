@@ -26,7 +26,7 @@ class ROADBUILDER_API UBaseMarkStyle : public UObject
 public:
 	virtual void BuildMesh(UObject* Caller, FRoadMesh& Builder, const FPolyline& Curve) {}
 	UPROPERTY(EditAnywhere, Category = Style)
-	UMaterialInterface* Material = nullptr;
+	TObjectPtr<UMaterialInterface> Material = nullptr;
 };
 
 UCLASS()

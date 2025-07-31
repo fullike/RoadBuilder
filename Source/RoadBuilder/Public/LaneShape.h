@@ -22,7 +22,7 @@ struct FLaneCrossSection
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere, Category = CrossSection)
-	UMaterialInterface* Material = nullptr;
+	TObjectPtr<UMaterialInterface> Material = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = CrossSection)
 	ELaneAlignment Alignment;

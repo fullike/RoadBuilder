@@ -179,7 +179,7 @@ struct FPolyline
 	}
 	FVector GetStraightDir(int i) const
 	{
-		FVector Prev, Next;
+		FVector Prev, Next = FVector::ZeroVector;
 		if (i > 0)
 			Prev = (Points[i].Pos - Points[i - 1].Pos).GetSafeNormal();
 		if (i < Points.Num() - 1)
@@ -192,7 +192,7 @@ struct FPolyline
 	}
 	FVector GetStraightRight(int i) const
 	{
-		FVector Prev, Next;
+		FVector Prev, Next = FVector::ZeroVector;
 		if (i > 0)
 			Prev = (Points[i].Pos - Points[i - 1].Pos).GetSafeNormal();
 		if (i < Points.Num() - 1)

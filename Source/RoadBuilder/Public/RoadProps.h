@@ -29,7 +29,7 @@ struct FRoadProp
 	}
 
 	UPROPERTY(EditAnywhere, Category = Prop)
-	TArray<UObject*> Assets;
+	TArray<TObjectPtr<UObject>> Assets;
 
 	UPROPERTY(EditAnywhere, Category = Prop)
 	FVector Offset = FVector::ZeroVector;

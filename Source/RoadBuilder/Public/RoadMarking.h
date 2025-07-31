@@ -27,7 +27,7 @@ public:
 	virtual void BuildMesh(FRoadActorBuilder& Builder);
 
 	UPROPERTY(EditAnywhere, Category = Point)
-	UStaticMesh* Mesh = nullptr;
+	TObjectPtr<UStaticMesh> Mesh = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Point)
 	FVector2D Point;
@@ -88,10 +88,10 @@ public:
 	FPolyline CreatePolyline();
 
 	UPROPERTY(EditAnywhere, Category = Style, meta = (DisallowedClasses = "PolygonMarkStyle"))
-	UBaseMarkStyle* MarkStyle = nullptr;
+	TObjectPtr<UBaseMarkStyle> MarkStyle = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Style, meta = (EditCondition = "bClosedLoop"))
-	UPolygonMarkStyle* FillStyle = nullptr;
+	TObjectPtr<UPolygonMarkStyle> FillStyle = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Style, meta = (EditCondition = "bClosedLoop"))
 	double Orientation = 0;

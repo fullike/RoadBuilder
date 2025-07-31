@@ -34,7 +34,7 @@ struct ROADBUILDER_API FGroundPoint
 		return HashCombineFast(GetTypeHash(Point.Road), GetTypeHash(Point.Side << 16 | Point.Index));
 	}
 	UPROPERTY()
-	ARoadActor* Road;
+	TObjectPtr<ARoadActor> Road;
 
 	UPROPERTY()
 	int Side;
@@ -78,7 +78,7 @@ public:
 		Tags.Remove(TEXT("Expired"));
 	}
 	UPROPERTY(EditAnywhere, Category = Ground)
-	UMaterialInterface* Material;
+	TObjectPtr<UMaterialInterface> Material;
 
 	UPROPERTY()
 	TArray<FVector> ManualPoints;

@@ -18,10 +18,10 @@ struct FBoundarySegment
 	double Dist = 0;
 
 	UPROPERTY(EditAnywhere, Category = Segment)
-	ULaneMarkStyle* LaneMarking = nullptr;
+	TObjectPtr<ULaneMarkStyle> LaneMarking = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Segment)
-	URoadProps* Props = nullptr;
+	TObjectPtr<URoadProps> Props = nullptr;
 };
 
 UCLASS()
@@ -47,16 +47,16 @@ public:
 	void Cut(double R_Start, double R_End);
 	double& SegmentStart(int i) { return Segments[i].Dist; }
 	double& SegmentEnd(int i) { return i + 1 < Segments.Num() ? Segments[i + 1].Dist : Length(); }
-	URoadLane*& GetLane(int Side) { return Side ? LeftLane : RightLane; }
+	URoadLane*& GetLane(int Side) { return Side ? MutableView(LeftLane) : MutableView(RightLane); }
 
 	UPROPERTY(EditAnywhere, Category = Boundary)
 	TArray<FBoundarySegment> Segments;
 
 	UPROPERTY()
-	URoadLane* LeftLane = nullptr;
+	TObjectPtr<URoadLane> LeftLane = nullptr;
 
 	UPROPERTY()
-	URoadLane* RightLane = nullptr;
+	TObjectPtr<URoadLane> RightLane = nullptr;
 
 	TArray<FOctreeElementId2> OctreeIds;
 };

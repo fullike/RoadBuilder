@@ -38,7 +38,7 @@ struct FLaneSegment
 	double Dist = 0;
 
 	UPROPERTY(EditAnywhere, Category = Segment)
-	ULaneShape* LaneShape = nullptr;
+	TObjectPtr<ULaneShape> LaneShape = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Segment)
 	ELaneType LaneType = (ELaneType)0;
@@ -65,14 +65,14 @@ public:
 	double& SegmentStart(int i) { return Segments[i].Dist; }
 	double& SegmentEnd(int i) { return i + 1 < Segments.Num() ? Segments[i + 1].Dist : Length(); }
 	double GetWidth(double Dist) { return FMath::Abs(LeftBoundary->GetOffset(Dist) - RightBoundary->GetOffset(Dist)); }
-	URoadBoundary*& GetBoundary(int Side) { return Side ? LeftBoundary : RightBoundary; }
+	URoadBoundary*& GetBoundary(int Side) { return Side ? MutableView(LeftBoundary) : MutableView(RightBoundary); }
 
 	UPROPERTY(EditAnywhere, Category = Lane)
 	TArray<FLaneSegment> Segments;
 
 	UPROPERTY()
-	URoadBoundary* LeftBoundary = nullptr;
+	TObjectPtr<URoadBoundary> LeftBoundary = nullptr;
 
 	UPROPERTY()
-	URoadBoundary* RightBoundary = nullptr;
+	TObjectPtr<URoadBoundary> RightBoundary = nullptr;
 };

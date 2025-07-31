@@ -29,13 +29,13 @@ struct FRoadLaneStyle
 	ELaneType LaneType;
 
 	UPROPERTY(EditAnywhere, Category = Style)
-	ULaneShape* LaneShape = nullptr;
+	TObjectPtr<ULaneShape> LaneShape = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Style)
-	ULaneMarkStyle* LaneMarking = nullptr;
+	TObjectPtr<ULaneMarkStyle> LaneMarking = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Style)
-	URoadProps* Props = nullptr;
+	TObjectPtr<URoadProps> Props = nullptr;
 };
 
 UCLASS()
@@ -63,10 +63,10 @@ public:
 	TArray<FRoadLaneStyle> RightLanes;
 
 	UPROPERTY(EditAnywhere, Category = Style)
-	ULaneMarkStyle* BaseCurveMark;
+	TObjectPtr<ULaneMarkStyle> BaseCurveMark;
 
 	UPROPERTY(EditAnywhere, Category = Style)
-	URoadProps* BaseCurveProps = nullptr;
+	TObjectPtr<URoadProps> BaseCurveProps = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Style)
 	bool bHasGround = false;
@@ -175,7 +175,7 @@ struct FConnectInfo
 	double ConnectionSign(ARoadActor* Parent);
 
 	UPROPERTY()
-	ARoadActor* Child;
+	TObjectPtr<ARoadActor> Child;
 
 	UPROPERTY()
 	int Index;
@@ -336,19 +336,19 @@ public:
 	TArray<FHeightSegment> HeightSegments;
 
 	UPROPERTY(EditAnywhere, Category = Road)
-	TArray<URoadLane*> Lanes;
+	TArray<TObjectPtr<URoadLane>> Lanes;
 
 	UPROPERTY(EditAnywhere, Category = Road)
-	TArray<URoadBoundary*> Boundaries;
+	TArray<TObjectPtr<URoadBoundary>> Boundaries;
 
 	UPROPERTY(EditAnywhere, Category = Road)
-	TArray<URoadMarking*> Markings;
+	TArray<TObjectPtr<URoadMarking>> Markings;
 
 	UPROPERTY()
-	URoadBoundary* BaseCurve;
+	TObjectPtr<URoadBoundary> BaseCurve;
 
 	UPROPERTY(EditAnywhere, Category = Road)
-	ARoadActor* ConnectedParents[2] = { nullptr, nullptr };
+	TObjectPtr<ARoadActor> ConnectedParents[2] = { nullptr, nullptr };
 
 	UPROPERTY(EditAnywhere, Category = Road)
 	bool bHasGround = false;

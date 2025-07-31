@@ -67,13 +67,13 @@ struct FJunctionLink
 	void CreateRoad(AJunctionActor* Parent);
 	void Destroy();
 	UPROPERTY()
-	ARoadActor* Road = nullptr;
+	TObjectPtr<ARoadActor> Road = nullptr;
 
 	UPROPERTY()
-	ARoadActor* InputRoad = nullptr;
+	TObjectPtr<ARoadActor> InputRoad = nullptr;
 
 	UPROPERTY()
-	ARoadActor* OutputRoad = nullptr;
+	TObjectPtr<ARoadActor> OutputRoad = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Link)
 	double Radius = 1000;
@@ -139,7 +139,7 @@ struct FJunctionGate
 	void Renew(double D, double S);
 
 	UPROPERTY()
-	ARoadActor* Road;
+	TObjectPtr<ARoadActor> Road;
 
 	UPROPERTY()
 	double Radian;
@@ -247,13 +247,13 @@ public:
 #endif
 
 	UPROPERTY()
-	TArray<ARoadActor*> Roads;
+	TArray<TObjectPtr<ARoadActor>> Roads;
 
 	UPROPERTY()
-	TArray<AJunctionActor*> Junctions;
+	TArray<TObjectPtr<AJunctionActor>> Junctions;
 
 	UPROPERTY()
-	TArray<AGroundActor*> Grounds;
+	TArray<TObjectPtr<AGroundActor>> Grounds;
 
 	TOctree2<FRoadOctreeElement, FRoadOctreeSemantics> Octree;
 };
